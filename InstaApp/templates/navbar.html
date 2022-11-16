@@ -1,0 +1,291 @@
+{% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+<style>
+    @import url('//fonts.cdnfonts.com/css/billabong');
+body {
+  background: #fafafa;
+}
+
+
+.navigation {
+  background-color: #ffffff;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  /* top: 0; */
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 50px;
+  box-sizing: border-box;
+  z-index: 2;
+  /* animation magic */
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+}
+
+.shrink {
+  height: 50px;
+}
+
+.navigation .logo a {
+  position: relative;
+  color: #000000;
+  font-size: 30px;
+  font-family: "billabong", sans-serif;
+  text-decoration: none;
+}
+
+.navigation-search-container {
+  position: relative;
+}
+
+.navigation-search-container input {
+  background-color: #fafafa;
+  padding: 3px 20px;
+  padding-left: 25px;
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.0975);
+  border-radius: 3px;
+  font-size: 14px;
+  width: 53%;
+}
+
+.navigation-search-container .fa-search {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 650px) {
+  /* Navigation */
+  .navigation {
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+  .navigation-search-container {
+    display: none;
+  }
+  .navigation-icons {
+    display: flex;
+  }
+  #profile{
+    display: none;
+  }
+}
+
+.navigation-icons {
+  display: flex;
+}
+
+.navigation-search-container input:focus {
+  outline: none;
+}
+
+.navigation-search-container input::placeholder {
+  text-align: center;
+}
+
+.navigation-icons a {
+  text-decoration: none;
+}
+
+.navigation-link i {
+  margin: 0px 25px;
+  color: black;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.notification-bubble-wrapper {
+  position: relative;
+  top: -30px;
+  left: 17px;
+}
+
+.notification-bubble {
+  position: absolute;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
+  background: #ff2c74;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  padding: 5px 5px 3px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  display: none;
+}
+
+@media only screen and (max-width: 440px){
+    .navigation-link i {
+    margin: 0px 12px;
+}
+}
+
+#profile a img {
+  max-width: 50px;
+  min-width: 45px;
+  min-height: 45px;
+  max-height: 50px;
+  border-radius: 50%;
+}
+
+.navigation-2 {
+  display: none;
+  background-color: #ffffff;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  top: 12%;
+  left: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 50px;
+  box-sizing: border-box;
+  z-index: 2;
+  /* animation magic */
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+}
+
+@media only screen and (max-width: 650px){
+
+.navigation-2 {
+display: block;
+background-color: #ffffff;
+height: 80px;
+position: fixed;
+width: 100%;
+top: 0%;
+left: 0;
+border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+display: flex !important;
+align-items: center;
+justify-content: space-around;
+padding: 0px 50px;
+box-sizing: border-box;
+z-index: 2;
+/* animation magic */
+transition: all 0.4s ease-in-out;
+-webkit-transition: all 0.4s ease-in-out;
+-moz-transition: all 0.4s ease-in-out;
+}
+.navigation-2 #profile{
+  display: block;
+}
+ 
+.navigation-2 .navigation-search-container {
+  display: block;
+}
+}
+
+</style>
+
+<body>
+
+
+
+    <div class="navigation">
+        <div class="logo">
+          <a class="no-underline" href="#">
+            <img style="width: 60px;" src="{% static './images/instagram logo.png' %}" alt="" />
+          </a>
+        </div>
+
+        <div class="navigation-search-container search">
+          <i class="fa fa-search"></i>
+          <form action="/search" method="GET">
+            <input type="text" placeholder="search" name="username" />
+            <button class="btn btn-sm btn-primary">Search</button>
+          </form>
+        </div>
+
+        <div class="navigation-icons">
+            <a href="/" class="text-dark">
+                <i class="fa-solid fa-house"></i>
+          </a>
+
+
+
+    <a class="navigation-link notifica" href="/reels"><i class="fa-brands fa-wpexplorer"></i></a>
+    <a class="navigation-link notifica" href="/upload_reel"><i class="fa-solid fa-film"></i></a>
+  
+
+          <a href="/uploadpost" class="navigation-link notifica">
+            
+            <i class="fa-solid fa-circle-plus"></i></a>
+
+          <a href="/profile" class="navigation-link">
+            <i class="far fa-user-circle"></i>
+          </a>
+          <a href="/logout" id="signout" class="navigation-link">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+          
+          
+
+        </div>
+        <li id="profile" style="list-style: none; margin: 0 0 0 10px;">
+          <a href="/uploadstory"><img src="{{profileimage|safe}}" alt="" id="profile" /> </a>
+          <h5>{{request.user}}</h5>
+        </li>
+      </div>
+
+
+
+      
+      <div class="navigation-2" style="display: none;">
+        <div class="navigation-search-container search">
+          <i class="fa fa-search"></i>
+          <form action="/search" method="GET">
+            <input type="text" placeholder="search" name="username" />
+            <button class="btn btn-sm btn-primary">Search</button>
+          </form>
+        </div>
+
+        <li id="profile" style="list-style: none; margin: 0 0 0 10px;">
+          <a href="/uploadstory"><img src="{{profileimage|safe}}" alt="" id="profile" /> </a>
+          <h5>{{request.user}}</h5>
+        </li>
+
+      </div>
+
+      
+
+      <script>
+        $(".fa-heart").dblclick(function () {
+  $(".notification-bubble").show(400);
+});
+
+$(document).on("scroll", function () {
+  if ($(document).scrollTop() > 50) {
+    $(".navigation").addClass("shrink");
+  } else {
+    $(".navigation").removeClass("shrink");
+  }
+});
+
+      </script>
+      
+
+
+    <script src="https://kit.fontawesome.com/55524e0bb6.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
